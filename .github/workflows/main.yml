@@ -1,0 +1,22 @@
+name: CI-CD
+
+on: 
+  push:
+    branches: ["main"]
+
+jobs: 
+  CI: 
+    runs-on: ubuntu:latest
+
+    setps: 
+    - uses: actions/checkout@v4.2.2
+    - name: Construção da iamgem Docker
+      uses: docker/build-push-action@v6.16.0
+      with: 
+        context: ./src
+        file: ./src/Dockerfile
+        push: true
+        tags: | 
+          felipethales/aprendizado-kube:v1
+          felipethales/aprendizado-kube:latest
+          
