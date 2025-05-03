@@ -18,7 +18,7 @@ jobs:
     
     - uses: actions/checkout@v4.2.2
     - name: Construção da iamgem Docker
-    - uses: docker/build-push-action@v6.16.0
+      uses: docker/build-push-action@v6.16.0
       with: 
         context: ./src
         file: ./src/Dockerfile
