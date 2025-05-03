@@ -8,7 +8,14 @@ jobs:
   CI: 
     runs-on: ubuntu:latest
 
-    steps: 
+    steps:
+    - name: Autenticação no Docker Hub
+      uses: docker/login-action@v3.4.0
+      with: 
+        username: ${{secrets.DOCKERHUB_USER}}
+        password: ${{secrets.DOCKERHUB_PWD}}
+        
+    
     - uses: actions/checkout@v4.2.2
     - name: Construção da iamgem Docker
     - uses: docker/build-push-action@v6.16.0
